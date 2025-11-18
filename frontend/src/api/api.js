@@ -12,6 +12,12 @@ const getMessages = async () => {
     return data.data
 }
 
+const registerUser = async (user) => {
+    const res = await apiInstance.post("/auth/register", user)
+    return res
+}
+
 export const api = {
-    getMessages
+    getMessages,
+    registerUser
 }
