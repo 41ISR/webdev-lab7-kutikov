@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from "../api/api"
 import MessageCard from "./MessageCard"
 
-const Feed = ({title = "Сообщения"}) => {
+const Feed = ({ title = "Сообщения" }) => {
     const [messages, setMessages] = useState([])
     useEffect(() => {
         const fetchData = async () => {
@@ -22,8 +22,8 @@ const Feed = ({title = "Сообщения"}) => {
                 <div className="container">
                     <h2 className="section-title">{title}</h2>
                     <div className="messages-grid">
-                        {messages.map((el) => (
-                            <MessageCard {...el} />
+                        {messages.map((el, i) => (
+                            <MessageCard key={i} {...el} />
                         ))}
                     </div>
                 </div>
