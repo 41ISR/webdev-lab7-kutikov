@@ -10,7 +10,7 @@ const apiInstance = axios.create({
 
 apiInstance.interceptors.request.use((config) => {
     const { session } = useUserStore.getState()
-    
+
     if (session?.token) {
         config.headers.Authorization = `Bearer ${session.token}`
     }
@@ -38,9 +38,27 @@ const sendMessage = async (message) => {
     return res
 }
 
+const deleteMessage = async (id) => {
+    const res = await apiInstance.delete(`/messages/${id}`)
+    return res
+}
+
+const reportMessage = async (id) => {
+    const res = await apiInstance.post(`/messages/${id}/report`)
+    return res
+}
+
+const likeMessage = async (id) => {
+    const res = await apiInstance.post(`/messages/${id}/like`)
+    return res
+}
+
 export const api = {
+    likeMessage,
+    reportMessage,
     getMessages,
     registerUser,
     loginUser,
-    sendMessage
+    sendMessage,
+    deleteMessage
 }
