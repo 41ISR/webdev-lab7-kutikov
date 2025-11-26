@@ -15,6 +15,7 @@ export const router = createBrowserRouter(
             path: "/signin",
             element: <SignIn />
         },
+
         {
             path: "/logout",
             element: <Logout />
@@ -26,7 +27,11 @@ export const router = createBrowserRouter(
                 {
                     index: true,
                     element: <Board />
-                }
+                },
+                {
+                    path: "/my-messages",
+                    element: <MyMessages />
+                },
             ]
         }
     ]
