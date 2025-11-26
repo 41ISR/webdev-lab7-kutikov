@@ -8,10 +8,11 @@ const MessageField = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const message = { content: e.target.content.value }
-
+        
         try {
             await api.sendMessage(message)
             await getMessages()
+            e.target.reset()
         } catch (error) {
             console.error(error)
         }
