@@ -4,6 +4,7 @@ import SignIn from "../pages/SignIn"
 import Layout from "../pages/Layout"
 import Board from "../pages/Board"
 import Logout from "../pages/Logout"
+import MyMessages from "../pages/MyMessages"
 
 export const router = createBrowserRouter(
     [
